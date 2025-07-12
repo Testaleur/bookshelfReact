@@ -1,0 +1,10 @@
+[
+  {"city":"AIX","id":"AIX_01","status":"OK","hint":"","lat":"43,5285840236","lng":"5,4431859342","points":"10"}, 
+  {"city":"AIX","id":"AIX_02","status":"OK","hint":"","lat":"43,5308733553","lng":"5,447449928","points":"10"}, 
+  {"city":"AIX","id":"AIX_03","status":"OK","hint":"","lat":"43,5273653439","lng":"5,4516721246","points":"10"}, 
+  {"city":"AIX","id":"AIX_04","status":"OK","hint":"","lat":"43,527691519","lng":"5,4508445297","points":"10"}, 
+  {"city":"AIX","id":"AIX_05","status":"OK","hint":"","lat":"43,5267219607","lng":"5,4473786357","points":"20"}, 
+  {"city":"AIX","id":"AIX_06","status":"OK","hint":"","lat":"43,5281249734","lng":"5,4455825004","points":"20"}, 
+  {"city":"AIX","id":"AIX_07","status":"OK","hint":"","lat":"43,5270610314","lng":"5,4465184675","points":"20"}, 
+  {"city":"AIX","id":"AIX_08","status":"OK","hint":"","lat":"43,5271746378","lng":"5,4477032421","points":"20"}
+]
