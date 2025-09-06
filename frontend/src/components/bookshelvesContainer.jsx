@@ -1,5 +1,6 @@
 import Shelf from './shelf.jsx'
 import Card from './card.jsx'
+import Book from './book.jsx'
 
 const MAX_BOOKS_PER_SHELF = 5;
 
@@ -13,17 +14,17 @@ const BookshelvesContainer = ({ books }) => {
     <Card
       className="shelf"
       id="bookshelvesContainer"
-      title="bookshelvesContainer"
     >
       {shelves.map((shelfBooks, shelfIndex) => (
         <Shelf key={`shelf-${shelfIndex}`}>
-          <ul>
-            {shelfBooks.map((book) => (
-              <li key={`book-${book.id}`}>
-                {book.title} — {book.author}
-              </li>
-            ))}
-          </ul>
+          {shelfBooks.map((book) => (
+            <Book
+              key={`book-${book.id}`}
+              title={book.title}
+              author={book.author}
+              type = {"Book"}
+            />
+          ))}
         </Shelf>
       ))}
     </Card>

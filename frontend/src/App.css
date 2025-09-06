@@ -1,6 +1,7 @@
 @import "styles/shared.css";
 @import "styles/bookshelves.css";
 @import "styles/infosDisplayer.css";
+@import "styles/books.css";
 
 #root {
   max-width: 1600px;
