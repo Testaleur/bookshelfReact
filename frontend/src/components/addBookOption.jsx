@@ -1,6 +1,7 @@
 
 import { types, API_URL } from "../config.jsx";
 import { useState } from "react";
+import Card from './card.jsx'
 
 const AddBookOption = ({setBooks}) => {
   const [title, setTitle] = useState('');
@@ -26,38 +27,41 @@ const AddBookOption = ({setBooks}) => {
   };
 
   return (
-    <div className="mb-4">
-      <input
-        className="border p-1 mr-2"
-        value={title}
-        onChange={e => setTitle(e.target.value)}
-        placeholder="Title"
-      />
-      <input
-        className="border p-1 mr-2"
-        value={author}
-        onChange={e => setAuthor(e.target.value)}
-        placeholder="Author"
-      />
-      <select
-        id = "selectType"
-        className="border p-1 mr-2"
-        value={type}
-        onChange={e => setType(e.target.value)}
-      >
-        {types.map(t => (
-          <option key={t} value={t}>
-            {t}
-          </option>
-        ))}
-      </select>
-      <button
-        className="bg-blue-500 text-white px-3 py-1 rounded"
-        onClick={addBook}
-      >
-        Add
-      </button>
-    </div>
+    <Card id = "addBookOption">
+        Add a book
+      <div className="mb-4">
+        <input
+          className="border p-1 mr-2"
+          value={title}
+          onChange={e => setTitle(e.target.value)}
+          placeholder="Title"
+        />
+        <input
+          className="border p-1 mr-2"
+          value={author}
+          onChange={e => setAuthor(e.target.value)}
+          placeholder="Author"
+        />
+        <select
+          id = "selectType"
+          className="border p-1 mr-2"
+          value={type}
+          onChange={e => setType(e.target.value)}
+        >
+          {types.map(t => (
+            <option key={t} value={t}>
+              {t}
+            </option>
+          ))}
+        </select>
+        <button
+          className="bg-blue-500 text-white px-3 py-1 rounded"
+          onClick={addBook}
+        >
+          Add
+        </button>
+      </div>
+    </Card>
   );
 };
 export default AddBookOption

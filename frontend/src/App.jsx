@@ -1,35 +1,39 @@
-import './App.css'
+import './App.css';
 import BookshelvesContainer from './components/bookshelvesContainer.jsx';
-import Card from './components/card.jsx'
-import RowContainer from './components/rowContainer.jsx'
-import AddBookOption from './components/addBookOption.jsx'
+import Card from './components/card.jsx';
+import RowContainer from './components/rowContainer.jsx';
+import MainBanner from './components/mainBanner.jsx';
 import { generateBooks } from "./mock/mockBooks";
 import { useEffect, useState } from 'react';
-import { ENV, API_URL } from './config.jsx';
+import { ENV, API_URL, NB_GENERATED_BOOKS, defaultType } from './config.jsx';
 
 function App() {
   // displayed features
   const [books, setBooks] = useState([]);
-  const [mockBooks] = useState(() => generateBooks(42));
+  const [selectedType, setSelectedType] = useState(defaultType);
+  const [mockBooks] = useState(() => generateBooks(NB_GENERATED_BOOKS));
 
   // load books from backend
   useEffect(() => {
     fetch(API_URL)
     .then(res => res.json())
-    .then(data => setBooks(data))
+    .then(data => {
+      if(ENV=="mockTest"){
+        setBooks(mockBooks);
+      }else{
+        setBooks(data);
+      }
+    })
     .catch(err => console.error('Error fetching books:', err));
   }, []);
 
   return (
     <>
-      <Card id = "mainTitle ">
-        Main title + options panel
-        <AddBookOption setBooks = {setBooks}/>
-      </Card>
+      <MainBanner setBooks = {setBooks} setSelectedType = {setSelectedType} selectedType = {selectedType}/>
 
       <RowContainer>
         <BookshelvesContainer
-          books = {ENV=="mockTest"?mockBooks:books}
+          books = {filterBooks(books, selectedType)}
         />
         <Card id = "bookInfosDisplayer">
           bookInfosDisplayer
@@ -37,6 +41,10 @@ function App() {
       </RowContainer>
     </>
   )
+}
+
+function filterBooks(data, selectedType){
+  return data.filter(e => ((e.type === selectedType) || selectedType === defaultType))
 }
 
 export default App

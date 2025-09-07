@@ -2,6 +2,7 @@
 @import "styles/bookshelves.css";
 @import "styles/infosDisplayer.css";
 @import "styles/books.css";
+@import "styles/mainBanner.css";
 
 #root {
   max-width: 1600px;
