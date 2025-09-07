@@ -25,6 +25,8 @@ app.post('/books', (req, res) => {
   fs.readFile(DATA_FILE, 'utf8', (err, data) => {
     if (err) return res.status(500).json({ error: 'Cannot read file' });
     const books = JSON.parse(data);
+    const newId = books.length > 0 ? Math.max(...books.map(b => b.id)) + 1 : 1;
+    newBook.id = newId;
     books.push(newBook);
     fs.writeFile(DATA_FILE, JSON.stringify(books, null, 2), err => {
       if (err) return res.status(500).json({ error: 'Cannot write file' });
