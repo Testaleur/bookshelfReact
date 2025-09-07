@@ -6,27 +6,30 @@ import { generateBooks } from "./mock/mockBooks";
 import { useEffect, useState } from 'react';
 
 const API_URL = 'http://localhost:4000/books';
-const ENV = "mockTest";
+const ENV = "mockTest"; // "test" or "mockTest"
+export const types = ["Book", "Movie", "Series"];
+export const MAX_BOOKS_PER_SHELF = 20;
 
 function App() {
   // displayed features
   const [books, setBooks] = useState([]);
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
-  const mockBooks = generateBooks(42);
+  const [type, setType] = useState('Book');
+  const [mockBooks] = useState(() => generateBooks(42));
 
   // load books from backend
   useEffect(() => {
-      fetch(API_URL)
-      .then(res => res.json())
-      .then(data => setBooks(data))
-      .catch(err => console.error('Error fetching books:', err));
+    fetch(API_URL)
+    .then(res => res.json())
+    .then(data => setBooks(data))
+    .catch(err => console.error('Error fetching books:', err));
   }, []);
 
   const addBook = () => {
     if (!title.trim() || !author.trim()) return;
 
-    const newBook = { title, author };
+    const newBook = { title, author, type };
 
     fetch(API_URL, {
       method: 'POST',
@@ -38,6 +41,7 @@ function App() {
         setBooks(data.books);
         setTitle('');
         setAuthor('');
+        setType('');
       })
       .catch(err => console.error('Error adding book:', err));
   };
@@ -60,6 +64,18 @@ function App() {
             onChange={e => setAuthor(e.target.value)}
             placeholder="Author"
           />
+          <select
+            id = "selectType"
+            className="border p-1 mr-2"
+            value={type}
+            onChange={e => setType(e.target.value)}
+          >
+            {types.map(t => (
+              <option key={t} value={t}>
+                {t}
+              </option>
+            ))}
+          </select>
           <button
             className="bg-blue-500 text-white px-3 py-1 rounded"
             onClick={addBook}

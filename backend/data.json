@@ -2,14 +2,29 @@
   {
     "id": 0,
     "title": "BookTitle",
-    "author": "BookAuthor"
+    "author": "BookAuthor",
+    "type": "Book"
   },
   {
+    "id": 1,
     "title": "test",
-    "author": "auth"
+    "author": "auth",
+    "type": "Movie"
   },
   {
+    "id": 2,
     "title": "titleTest",
-    "author": "authorTest"
+    "author": "authorTest",
+    "type": "Series"
+  },
+  {
+    "title": "testType",
+    "author": "authTest",
+    "type": "Series"
+  },
+  {
+    "title": "testTitle",
+    "author": "jasdj",
+    "type": "Movie"
   }
 ]
