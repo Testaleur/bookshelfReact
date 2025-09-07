@@ -1,7 +1,7 @@
 import Shelf from './shelf.jsx'
 import Card from './card.jsx'
 import Book from './book.jsx'
-import {MAX_BOOKS_PER_SHELF} from '../App.jsx'
+import {MAX_BOOKS_PER_SHELF} from '../config.jsx'
 
 const BookshelvesContainer = ({ books }) => {
   const shelves = [];

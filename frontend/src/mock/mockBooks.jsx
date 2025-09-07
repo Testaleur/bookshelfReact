@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import {types} from "../App.jsx"
+import {types} from "../config.jsx"
 
 export function generateBooks(count = 30) {
   return Array.from({ length: count }, (_, i) => ({
