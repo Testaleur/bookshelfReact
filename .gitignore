@@ -6,9 +6,6 @@ backend/node_modules/
 # Vite / frontend build
 frontend/dist/
 
-# data
-backend/data.json
-
 # Logs
 *.log
 

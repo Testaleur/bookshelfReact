@@ -1,4 +1,4 @@
-- gitignore data
+- gitignore data (create a file backend/data.example.json with [], and write in README : cp backend/data.example.json backend/data.json)
 - display books
 - book info displayer
 - option panels
