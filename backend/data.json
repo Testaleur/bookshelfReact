@@ -16,5 +16,8 @@
     "title": "titleTest",
     "author": "authorTest",
     "type": "Series"
+  },
+  {
+    "test":5
   }
 ]
