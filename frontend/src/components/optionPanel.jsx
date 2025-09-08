@@ -1,35 +1,23 @@
 import Card from "./card.jsx";
-import { types, defaultType } from '../config.jsx';
-import { Filter, SortAsc, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import RowContainer from "./rowContainer.jsx";
+import FilterOption from "./filterOption.jsx";
+import SortOption from "./sortOption.jsx";
 
-const OptionPanel = ({setSelectedType, selectedType}) => {
+const OptionPanel = ({setSelectedType, selectedType, setSelectedSort, selectedSort}) => {
   return (
-    <Card id="filterOption">
-      <RowContainer>
+    <Card id="optionPanel">
+      <RowContainer id = "optionRowContainer">
 
-        <div>
-          <Filter size={18} />
-          <select
-            id = "selectFilteringType"
-            className="border p-1 mr-2"
-            value={selectedType}
-            onChange={e => setSelectedType(e.target.value)}
-            >
-            {types.map(t => (
-              <option key={t} value={t}>
-                {t}
-              </option>
-            ))}
-            <option key={defaultType} value={defaultType}>
-              {defaultType}
-            </option>
-          </select>
-        </div>
+        <FilterOption
+          setSelectedType = {setSelectedType}
+          selectedType = {selectedType}
+        />
 
-        <button>
-          <SortAsc size={18} />
-        </button>
+        <SortOption
+          setSelectedSort = {setSelectedSort}
+          selectedSort = {selectedSort}
+        />
 
         <button>
           <Check size={18} />

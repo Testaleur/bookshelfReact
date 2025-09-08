@@ -1,10 +1,23 @@
 #addBookOption,
-#filterOption{
+#optionPanel{
   font-size: 20px;
   width: 33%;
+  height: 60px;
 }
 
 #mainTitle{
   font-size: 40px;
   width: 33%;
+  height: 60px;
+}
+
+#optionRowContainer{
+  gap: 20px;
+}
+
+#filterOption,
+#sortOption{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

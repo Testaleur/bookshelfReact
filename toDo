@@ -1,6 +1,6 @@
 - gitignore data (create a file backend/data.example.json with [], and write in README : cp backend/data.example.json backend/data.json)
-- display books
-- book info displayer
 - option panels
+- book info displayer
 - add book form
 - delete book by id
+- stats

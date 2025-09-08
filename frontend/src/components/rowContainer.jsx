@@ -1,6 +1,6 @@
-const RowContainer = ({children}) => {
+const RowContainer = ({children, id}) => {
   return (
-    <div className="rowContainer">
+    <div id = {id} className="rowContainer">
       {children}
     </div>
   )

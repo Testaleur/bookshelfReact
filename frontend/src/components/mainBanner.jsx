@@ -3,7 +3,7 @@ import AddBookOption from './addBookOption.jsx';
 import RowContainer from './rowContainer.jsx';
 import OptionPanel from './optionPanel.jsx';
 
-const MainBanner = ({setBooks, setSelectedType, selectedType}) => {
+const MainBanner = ({setBooks, setSelectedType, selectedType, setSelectedSort, selectedSort}) => {
   return (
     <RowContainer id = "mainBanner">
 
@@ -13,7 +13,12 @@ const MainBanner = ({setBooks, setSelectedType, selectedType}) => {
         My library
       </Card>
 
-      <OptionPanel setSelectedType={setSelectedType} selectedType = {selectedType}/>
+      <OptionPanel 
+        setSelectedType={setSelectedType} 
+        selectedType = {selectedType}
+        setSelectedSort = {setSelectedSort} 
+        selectedSort = {selectedSort}
+      />
 
     </RowContainer>
   );
