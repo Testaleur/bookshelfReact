@@ -1,9 +1,14 @@
-const Book = ({ title, author, type }) => {
+const Book = ({ book, setSelectedBook }) => {
+
   return (
     <button
-      className={`book ${type}`}
+      className={`book ${book.type}`}
+      onClick={() => {
+        console.log("setting book : ", book)
+        setSelectedBook(book)
+      }}
     >
-      {title}
+      {book.title}
     </button>
   );
 };

@@ -3,13 +3,15 @@ import BookshelvesContainer from './components/bookshelvesContainer.jsx';
 import Card from './components/card.jsx';
 import RowContainer from './components/rowContainer.jsx';
 import MainBanner from './components/mainBanner.jsx';
+import BookInfosDisplayer from './components/bookInfosDisplayer.jsx';
 import { generateBooks } from "./mock/mockBooks";
-import { useEffect, useState } from 'react';
+import { useActionState, useEffect, useState } from 'react';
 import { ENV, API_URL, NB_GENERATED_BOOKS, defaultType, defaultSort } from './config.jsx';
 
 function App() {
   // displayed features
   const [books, setBooks] = useState([]);
+  const [selectedBook, setSelectedBook] = useState(null);
   const [selectedType, setSelectedType] = useState(defaultType);
   const [selectedSort, setSelectedSort] = useState(defaultSort);
   const [mockBooks] = useState(() => generateBooks(NB_GENERATED_BOOKS));
@@ -41,10 +43,11 @@ function App() {
       <RowContainer>
         <BookshelvesContainer
           books = {prepareData(books, selectedSort, selectedType)}
+          setSelectedBook = {setSelectedBook}
         />
-        <Card id = "bookInfosDisplayer">
-          bookInfosDisplayer
-        </Card>
+        <BookInfosDisplayer
+          selectedBook = {selectedBook}
+        />
       </RowContainer>
     </>
   )
