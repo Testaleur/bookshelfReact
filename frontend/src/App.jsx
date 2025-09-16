@@ -1,11 +1,10 @@
 import './App.css';
 import BookshelvesContainer from './components/bookshelvesContainer.jsx';
-import Card from './components/card.jsx';
 import RowContainer from './components/rowContainer.jsx';
 import MainBanner from './components/mainBanner.jsx';
 import BookInfosDisplayer from './components/bookInfosDisplayer.jsx';
 import { generateBooks } from "./mock/mockBooks";
-import { useActionState, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ENV, API_URL, NB_GENERATED_BOOKS, defaultType, defaultSort } from './config.jsx';
 
 function App() {
@@ -30,11 +29,21 @@ function App() {
     .catch(err => console.error('Error fetching books:', err));
   }, []);
 
+  // filter
+  const setSelectedTypeAndUpdate = (newType) => {
+    setSelectedType(newType);
+    if(selectedBook.type){
+      if(selectedBook.type != newType && newType != defaultType){ // if the book is filtered, stop displaying it
+        setSelectedBook(null)
+      }
+    }
+  }
+
   return (
     <>
       <MainBanner 
         setBooks        = {setBooks} 
-        setSelectedType = {setSelectedType} 
+        setSelectedType = {setSelectedTypeAndUpdate} 
         selectedType    = {selectedType}
         setSelectedSort = {setSelectedSort}
         selectedSort    = {selectedSort}
