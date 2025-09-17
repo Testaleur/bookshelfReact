@@ -3,6 +3,7 @@
 @import "styles/infosDisplayer.css";
 @import "styles/books.css";
 @import "styles/mainBanner.css";
+@import "styles/stats.css";
 
 #root {
   max-width: 1600px;
@@ -17,7 +18,7 @@
   /* main system colors */
   --main-theme-color: #268a4e;
   --background-main-color : #aadcd0;
-  --counter-background-color : #333;
+  --counter-background-color : #242424;
   --title-color: white;
 
   /* button colors */

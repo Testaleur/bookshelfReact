@@ -1,0 +1,38 @@
+#statsDisplayer{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  width: 50%;
+  height: 50%;
+}
+
+#topStatBar{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#exitStatsButton {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: red;
+  border: none;
+  font-size: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#exitStatsButton:hover {
+  background-color: darkred;
+}

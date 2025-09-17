@@ -1,10 +1,10 @@
-import Card from "./card.jsx";
-import { Check } from "lucide-react";
-import RowContainer from "./rowContainer.jsx";
+import Card from "../utils/card.jsx";
+import RowContainer from "../utils/rowContainer.jsx";
 import FilterOption from "./filterOption.jsx";
 import SortOption from "./sortOption.jsx";
+import StatOption from "./statOption.jsx";
 
-const OptionPanel = ({setSelectedType, selectedType, setSelectedSort, selectedSort}) => {
+const OptionPanel = ({setSelectedType, selectedType, setSelectedSort, selectedSort, setDisplayStats}) => {
   return (
     <Card id="optionPanel">
       <RowContainer id = "optionRowContainer">
@@ -19,9 +19,9 @@ const OptionPanel = ({setSelectedType, selectedType, setSelectedSort, selectedSo
           selectedSort = {selectedSort}
         />
 
-        <button>
-          <Check size={18} />
-        </button>
+        <StatOption
+          setDisplayStats = {setDisplayStats}
+        />
 
       </RowContainer>
     </Card>

@@ -1,4 +1,4 @@
-import { types, defaultType } from '../config.jsx';
+import { types, defaultType } from '../../config.jsx';
 import { Filter } from "lucide-react";
 
 const FilterOption = ({setSelectedType, selectedType}) => {

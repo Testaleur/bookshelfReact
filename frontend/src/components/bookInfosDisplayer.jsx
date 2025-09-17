@@ -1,4 +1,4 @@
-import Card from "./card.jsx";
+import Card from "./utils/card.jsx";
 
 const BookInfosDisplayer = ({ selectedBook }) => {
   if (!selectedBook) {

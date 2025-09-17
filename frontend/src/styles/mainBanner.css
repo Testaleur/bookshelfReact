@@ -16,7 +16,8 @@
 }
 
 #filterOption,
-#sortOption{
+#sortOption,
+#statOption{
   display: flex;
   align-items: center;
   justify-content: center;

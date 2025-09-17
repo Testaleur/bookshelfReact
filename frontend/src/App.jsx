@@ -1,8 +1,9 @@
 import './App.css';
 import BookshelvesContainer from './components/bookshelvesContainer.jsx';
-import RowContainer from './components/rowContainer.jsx';
+import RowContainer from './components/utils/rowContainer.jsx';
 import MainBanner from './components/mainBanner.jsx';
 import BookInfosDisplayer from './components/bookInfosDisplayer.jsx';
+import Stats from './components/options/stats.jsx';
 import { generateBooks } from "./mock/mockBooks";
 import { useEffect, useState } from 'react';
 import { ENV, API_URL, NB_GENERATED_BOOKS, defaultType, defaultSort } from './config.jsx';
@@ -13,6 +14,7 @@ function App() {
   const [selectedBook, setSelectedBook] = useState(null);
   const [selectedType, setSelectedType] = useState(defaultType);
   const [selectedSort, setSelectedSort] = useState(defaultSort);
+  const [displayStats, setDisplayStats] = useState(false);
   const [mockBooks] = useState(() => generateBooks(NB_GENERATED_BOOKS));
 
   // load books from backend
@@ -47,7 +49,14 @@ function App() {
         selectedType    = {selectedType}
         setSelectedSort = {setSelectedSort}
         selectedSort    = {selectedSort}
+        setDisplayStats = {setDisplayStats}
       />
+
+      {displayStats &&
+        <Stats
+          setDisplayStats = {setDisplayStats}
+        />
+      }
 
       <RowContainer>
         <BookshelvesContainer

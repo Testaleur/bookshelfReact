@@ -1,7 +1,7 @@
 
-import { types, API_URL } from "../config.jsx";
+import { types, API_URL } from "../../config.jsx";
 import { useState } from "react";
-import Card from './card.jsx'
+import Card from '../utils/card.jsx'
 
 const AddBookOption = ({setBooks}) => {
   const [title, setTitle] = useState('');

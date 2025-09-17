@@ -1,9 +1,9 @@
-import Card from './card.jsx';
-import AddBookOption from './addBookOption.jsx';
-import RowContainer from './rowContainer.jsx';
-import OptionPanel from './optionPanel.jsx';
+import Card from './utils/card.jsx';
+import AddBookOption from './options/addBookOption.jsx';
+import RowContainer from './utils/rowContainer.jsx';
+import OptionPanel from './options/optionPanel.jsx';
 
-const MainBanner = ({setBooks, setSelectedType, selectedType, setSelectedSort, selectedSort}) => {
+const MainBanner = ({setBooks, setSelectedType, selectedType, setSelectedSort, selectedSort, setDisplayStats}) => {
   return (
     <RowContainer id = "mainBanner">
 
@@ -14,10 +14,11 @@ const MainBanner = ({setBooks, setSelectedType, selectedType, setSelectedSort, s
       </Card>
 
       <OptionPanel 
-        setSelectedType={setSelectedType} 
-        selectedType = {selectedType}
+        setSelectedType = {setSelectedType} 
+        selectedType    = {selectedType}
         setSelectedSort = {setSelectedSort} 
-        selectedSort = {selectedSort}
+        selectedSort    = {selectedSort}
+        setDisplayStats = {setDisplayStats}
       />
 
     </RowContainer>

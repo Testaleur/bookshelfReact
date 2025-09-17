@@ -1,5 +1,6 @@
 .card{
   border: var(--main-theme-color) solid 2px;
+  background-color: var(--counter-background-color);
   border-radius: 8px;
   display: flex;
   flex-direction: column;

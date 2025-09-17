@@ -1,4 +1,4 @@
-import { sortsOptions, defaultSort } from '../config.jsx';
+import { sortsOptions, defaultSort } from '../../config.jsx';
 import { SortAsc } from "lucide-react";
 
 const SortOption = ({setSelectedSort, selectedSort}) => {
