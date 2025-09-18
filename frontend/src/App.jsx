@@ -6,16 +6,17 @@ import BookInfosDisplayer from './components/bookInfosDisplayer.jsx';
 import Stats from './components/options/stats.jsx';
 import { generateBooks } from "./mock/mockBooks";
 import { useEffect, useState } from 'react';
-import { ENV, API_URL, NB_GENERATED_BOOKS, defaultType, defaultSort } from './config.jsx';
+import { ENV, API_URL, NB_GENERATED_BOOKS, defaultType, defaultSort, defaultReadingState, anyReadingState } from './config.jsx';
 
 function App() {
   // displayed features
-  const [books, setBooks] = useState([]);
-  const [selectedBook, setSelectedBook] = useState(null);
-  const [selectedType, setSelectedType] = useState(defaultType);
-  const [selectedSort, setSelectedSort] = useState(defaultSort);
-  const [displayStats, setDisplayStats] = useState(false);
-  const [mockBooks] = useState(() => generateBooks(NB_GENERATED_BOOKS));
+  const [books, setBooks]                                 = useState([]);
+  const [selectedBook, setSelectedBook]                   = useState(null);
+  const [selectedType, setSelectedType]                   = useState(defaultType);
+  const [selectedReadingState, setSelectedReadingState]   = useState(defaultReadingState);
+  const [selectedSort, setSelectedSort]                   = useState(defaultSort);
+  const [displayStats, setDisplayStats]                   = useState(false);
+  const [mockBooks]                                       = useState(() => generateBooks(NB_GENERATED_BOOKS));
 
   // load books from backend
   useEffect(() => {
@@ -34,21 +35,38 @@ function App() {
   // filter
   const setSelectedTypeAndUpdate = (newType) => {
     setSelectedType(newType);
-    if(selectedBook.type){
-      if(selectedBook.type != newType && newType != defaultType){ // if the book is filtered, stop displaying it
-        setSelectedBook(null)
-      }
+
+    if (
+      selectedBook?.type &&
+      newType !== defaultType &&
+      selectedBook.type !== newType
+    ) { // if the book is filtered, stop displaying it
+      setSelectedBook(null);
     }
-  }
+  };
+  const setSelectedReadingStateAndUpdate = (newReadingState) => {
+    setSelectedReadingState(newReadingState);
+
+    if (
+      selectedBook?.readingState &&
+      newReadingState !== anyReadingState &&
+      selectedBook.readingState !== newReadingState
+    ) { // if the book is filtered, stop displaying it
+      setSelectedBook(null);
+    }
+  };
+
 
   return (
     <>
       <MainBanner 
         setBooks        = {setBooks} 
-        setSelectedType = {setSelectedTypeAndUpdate} 
         selectedType    = {selectedType}
-        setSelectedSort = {setSelectedSort}
+        setSelectedType = {setSelectedTypeAndUpdate} 
+        selectedReadingState    = {selectedReadingState}
+        setSelectedReadingState = {setSelectedReadingStateAndUpdate} 
         selectedSort    = {selectedSort}
+        setSelectedSort = {setSelectedSort}
         setDisplayStats = {setDisplayStats}
       />
 
@@ -60,7 +78,7 @@ function App() {
 
       <RowContainer>
         <BookshelvesContainer
-          books = {prepareData(books, selectedSort, selectedType)}
+          books = {prepareData(books, selectedSort, selectedType, selectedReadingState)}
           setSelectedBook = {setSelectedBook}
         />
         <BookInfosDisplayer
@@ -71,12 +89,22 @@ function App() {
   )
 }
 
-function prepareData(data, selectedSort, selectedType){
-  return sortBooks(filterBooks(data, selectedType), selectedSort);
+function prepareData(data, selectedSort, selectedType, selectedReadingState){
+  return sortBooks(filterBooks(data, selectedType, selectedReadingState), selectedSort);
 }
 
-function filterBooks(data, selectedType){
-  return data.filter(e => ((e.type === selectedType) || selectedType === defaultType))
+function filterBooks(data, selectedType, selectedReadingState) {
+  return data.filter(e => {
+    const typeMatch =
+      selectedType === defaultType || 
+      e.type === selectedType;
+
+    const readMatch =
+      selectedReadingState === anyReadingState ||
+      e.readingState == selectedReadingState;
+
+    return typeMatch && readMatch;
+  });
 }
 
 function sortBooks(data, selectedSort) {

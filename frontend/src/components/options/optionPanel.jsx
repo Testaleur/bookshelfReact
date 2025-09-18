@@ -4,7 +4,7 @@ import FilterOption from "./filterOption.jsx";
 import SortOption from "./sortOption.jsx";
 import StatOption from "./statOption.jsx";
 
-const OptionPanel = ({setSelectedType, selectedType, setSelectedSort, selectedSort, setDisplayStats}) => {
+const OptionPanel = ({setSelectedType, selectedType, setSelectedSort, selectedSort, setDisplayStats, selectedReadingState, setSelectedReadingState}) => {
   return (
     <Card id="optionPanel">
       <RowContainer id = "optionRowContainer">
@@ -12,6 +12,8 @@ const OptionPanel = ({setSelectedType, selectedType, setSelectedSort, selectedSo
         <FilterOption
           setSelectedType = {setSelectedType}
           selectedType = {selectedType}
+          selectedReadingState    = {selectedReadingState}
+          setSelectedReadingState = {setSelectedReadingState}
         />
 
         <SortOption

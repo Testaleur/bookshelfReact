@@ -3,7 +3,7 @@ import AddBookOption from './options/addBookOption.jsx';
 import RowContainer from './utils/rowContainer.jsx';
 import OptionPanel from './options/optionPanel.jsx';
 
-const MainBanner = ({setBooks, setSelectedType, selectedType, setSelectedSort, selectedSort, setDisplayStats}) => {
+const MainBanner = ({setBooks, setSelectedType, selectedType, setSelectedSort, selectedSort, setDisplayStats, selectedReadingState, setSelectedReadingState}) => {
   return (
     <RowContainer id = "mainBanner">
 
@@ -14,10 +14,12 @@ const MainBanner = ({setBooks, setSelectedType, selectedType, setSelectedSort, s
       </Card>
 
       <OptionPanel 
-        setSelectedType = {setSelectedType} 
         selectedType    = {selectedType}
-        setSelectedSort = {setSelectedSort} 
+        setSelectedType = {setSelectedType} 
+        selectedReadingState    = {selectedReadingState}
+        setSelectedReadingState = {setSelectedReadingState} 
         selectedSort    = {selectedSort}
+        setSelectedSort = {setSelectedSort} 
         setDisplayStats = {setDisplayStats}
       />
 

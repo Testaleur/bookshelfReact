@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import {types} from "../config.jsx"
+import {types,readingStates} from "../config.jsx"
 
 export function generateBooks(count = 30) {
   return Array.from({ length: count }, (_, i) => ({
@@ -7,5 +7,6 @@ export function generateBooks(count = 30) {
     title: faker.lorem.words(2),
     author: faker.person.fullName(),
     type: types[Math.floor(Math.random() * types.length)],
+    readingState : readingStates[Math.floor(Math.random() * readingStates.length)]
   }));
 }

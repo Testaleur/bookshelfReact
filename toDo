@@ -1,7 +1,5 @@
 - gitignore data (create a file backend/data.example.json with [], and write in README : cp backend/data.example.json backend/data.json)
-- option panels
-- book info displayer
-- add book form
 - delete book by id
 - stats and achievements
 - color / theme picker
+- add the reading state to the displayed infos
