@@ -4,27 +4,34 @@
     "title": "BookTitle",
     "author": "BookAuthor",
     "type": "Book",
-    "readingState" : "Reading"
+    "readingState": "Reading"
   },
   {
     "id": 1,
     "title": "test",
     "author": "auth",
     "type": "Movie",
-    "readingState" : "Finished"
+    "readingState": "Finished"
   },
   {
     "id": 2,
     "title": "titleTest",
     "author": "authorTest",
     "type": "Series",
-    "readingState" : "Finished"
+    "readingState": "Finished"
   },
   {
     "id": 3,
     "title": "bookNotRead",
     "author": "authorTest",
     "type": "Book",
-    "readingState" : "Want to read"
+    "readingState": "Want to read"
+  },
+  {
+    "title": "azddddd",
+    "author": "aef",
+    "type": "Book",
+    "readingState": "Finished",
+    "id": 4
   }
 ]

@@ -1,5 +1,5 @@
 
-import { types, API_URL } from "../../config.jsx";
+import { types, API_URL, readingStates } from "../../config.jsx";
 import { useState } from "react";
 import Card from '../utils/card.jsx'
 
@@ -7,10 +7,11 @@ const AddBookOption = ({setBooks}) => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [type, setType] = useState('Book');
+  const [readingState, setReadingState] = useState('Finished');
 
   const addBook = () => {
-    if (!title.trim() || !author.trim()) return;
-    const newBook = { title, author, type };
+    if (!title.trim() || !author.trim() || !readingState.trim()) return;
+    const newBook = { title, author, type, readingState };
     fetch(API_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -21,7 +22,8 @@ const AddBookOption = ({setBooks}) => {
         setBooks(data.books);
         setTitle('');
         setAuthor('');
-        setType('');
+        setType('Book');
+        setReadingState('Finished');
       })
       .catch(err => console.error('Error adding book:', err));
   };
@@ -49,6 +51,18 @@ const AddBookOption = ({setBooks}) => {
           onChange={e => setType(e.target.value)}
         >
           {types.map(t => (
+            <option key={t} value={t}>
+              {t}
+            </option>
+          ))}
+        </select>
+        <select
+          id = "selectReadingState"
+          className="border p-1 mr-2"
+          value={readingState}
+          onChange={e => setReadingState(e.target.value)}
+        >
+          {readingStates.map(t => (
             <option key={t} value={t}>
               {t}
             </option>
