@@ -14,6 +14,7 @@ const BookInfosDisplayer = ({ selectedBook }) => {
       <h1 className="font-bold text-lg mb-2">{selectedBook.title}</h1>
       <p><strong>Author:</strong> {selectedBook.author}</p>
       <p><strong>Type:</strong> {selectedBook.type}</p>
+      <p><strong>State:</strong> {selectedBook.readingState}</p>
     </Card>
   );
 };
