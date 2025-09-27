@@ -1,8 +1,13 @@
-import { types, defaultType, readingStates, anyReadingState } from '../../config.jsx';
+import { types, defaultType, readingStates, anyReadingState, defaultReadingState } from '../../config.jsx';
 import { Filter } from "lucide-react";
 import ColumnContainer from '../utils/columnContainer.jsx';
 
 const FilterOption = ({setSelectedType, selectedType, selectedReadingState, setSelectedReadingState}) => {
+  const resetFilterValues = () => {
+    setSelectedType(defaultType);
+    setSelectedReadingState(defaultReadingState);
+  }
+
   return (
     <div id = "filterOption">
       <Filter size={18} />
@@ -39,6 +44,8 @@ const FilterOption = ({setSelectedType, selectedType, selectedReadingState, setS
             {anyReadingState}
           </option>
         </select>
+
+        <button onClick={resetFilterValues}>Reset</button>
       </ColumnContainer>
     </div>
   );
