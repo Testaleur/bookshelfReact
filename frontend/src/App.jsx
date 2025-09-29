@@ -73,6 +73,7 @@ function App() {
       {displayStats &&
         <Stats
           setDisplayStats = {setDisplayStats}
+          data = {books}
         />
       }
 

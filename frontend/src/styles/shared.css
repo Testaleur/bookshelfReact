@@ -28,3 +28,31 @@
   justify-content: center;
   gap : 4px;
 }
+
+.displayData{
+  border: var(--main-theme-color) solid 2px;
+  background-color: var(--counter-background-color);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  min-height: 30px;
+  height: 80px;
+  width: 180px;
+  margin: 6px;
+  padding:2px;
+}
+
+.display-title {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.display-value {
+  margin-top: 4px;
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 1;
+}
