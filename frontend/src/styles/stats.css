@@ -36,3 +36,9 @@
 #exitStatsButton:hover {
   background-color: darkred;
 }
+
+#columnOfStats{
+  display: inline-block;
+  overflow-y: auto;
+  overflow-x: hidden;
+}

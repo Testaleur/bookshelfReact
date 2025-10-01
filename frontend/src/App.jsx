@@ -123,7 +123,7 @@ function sortBooks(data, selectedSort) {
     case "Author (Z->A)":
       return books.sort((a, b) => b.author.localeCompare(a.author));
 
-    case "Any":
+    case defaultSort:
     default:
       return books;
   }
