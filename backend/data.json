@@ -4,34 +4,49 @@
     "title": "BookTitle",
     "author": "BookAuthor",
     "type": "Book",
-    "readingState": "Reading"
+    "readingState": "Reading",
+    "rating" : -1,
+    "date" : "",
+    "comments" : ""
   },
   {
     "id": 1,
     "title": "test",
     "author": "auth",
     "type": "Movie",
-    "readingState": "Finished"
+    "readingState": "Finished",
+    "rating" : 4,
+    "date" : "10/05/25",
+    "comments" : "Good book"
   },
   {
     "id": 2,
     "title": "titleTest",
     "author": "authorTest",
     "type": "Series",
-    "readingState": "Finished"
+    "readingState": "Finished",
+    "rating" : 7,
+    "date" : "4/07/24",
+    "comments" : "I liked it!"
   },
   {
     "id": 3,
     "title": "bookNotRead",
     "author": "authorTest",
     "type": "Book",
-    "readingState": "Want to read"
+    "readingState": "Want to read",
+    "rating" : -1,
+    "date" : "",
+    "comments" : ""
   },
   {
     "title": "azddddd",
     "author": "aef",
     "type": "Book",
     "readingState": "Finished",
-    "id": 4
+    "id": 4,
+    "rating" : 9,
+    "date" : "10/09/25",
+    "comments" : "An amazing piece of art"
   }
 ]
