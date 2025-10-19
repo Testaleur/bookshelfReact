@@ -25,7 +25,20 @@ const BookInfosDisplayer = ({ selectedBook }) => {
             })
           : "-"}
       </p>
-      <p><strong>Rating:</strong> {(selectedBook.rating && selectedBook.rating>=0)?selectedBook.rating:"-"}</p>
+      <p>
+        <strong>Note :</strong>{" "}
+        {selectedBook.rating && selectedBook.rating >= 0
+          ? [...Array(10)].map((_, i) => (
+              <span
+                key={i}
+                style={{ color: i < selectedBook.rating ? "gold" : "lightgray" }}
+              >
+                ★
+              </span>
+            ))
+          : "-"}
+      </p>
+
       <p><strong>Comments:</strong> {selectedBook.comments?selectedBook.comments:"-"}</p>
     </Card>
   );
