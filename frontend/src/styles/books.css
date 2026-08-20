@@ -19,26 +19,26 @@
 }
 
 
-.book.Book{
+.book.book{
   background-color: var(--book-color);
 }
 
-.book.Book:hover {
+.book.book:hover {
   background-color: var(--book-color-hover) ;
 }
 
-.book.Series{
+.book.series{
   background-color: var(--series-color);
 }
 
-.book.Series:hover {
+.book.series:hover {
   background-color: var(--series-color-hover);
 }
 
-.book.Movie{
+.book.movie{
   background-color: var(--movie-color);
 }
 
-.book.Movie:hover {
+.book.movie:hover {
   background-color: var(--movie-color-hover);
 }

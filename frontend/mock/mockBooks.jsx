@@ -1,8 +1,9 @@
 import { faker } from "@faker-js/faker";
-import {types,readingStates,maxRatingValue,defaultReadingState,defaultDate,defaultRating, defaultComments} from "../config.jsx"
+import { types,readingStates,maxRatingValue,defaultReadingState,defaultDate,defaultRating, defaultComments} from "../src/config.jsx";
 
 export function generateBooks(count = 30) {
   let readingState = readingStates[Math.floor(Math.random() * readingStates.length)];
+  const typesKeys = Object.keys(types);
 
   return Array.from(
     { length: count }, (_, i) => {
@@ -11,7 +12,7 @@ export function generateBooks(count = 30) {
         id: i,
         title: faker.lorem.words(2),
         author: faker.person.fullName(),
-        type: types[Math.floor(Math.random() * types.length)],
+        type: typesKeys[Math.floor(Math.random() * typesKeys.length)],
         readingState : readingState,
         rating : (readingState == defaultReadingState)?Math.floor(Math.random() * maxRatingValue):defaultRating,
         date : (readingState == defaultReadingState)?faker.date.between({ from: '2017-01-01', to: Date.now() }):defaultDate,

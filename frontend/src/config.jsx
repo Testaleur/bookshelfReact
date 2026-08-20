@@ -2,8 +2,25 @@
 export const API_URL = 'http://localhost:4000/books';
 export const ENV = "mockTest"; // "test" or "mockTest"
 // filtering options
-export const types          = ["Book", "Movie", "Series"];
-export const defaultType    = "Any type";
+export const types = {
+    "book" : {
+        "name" : "Book",
+        "librairyName" : "Ma Librairie"
+    },
+    "movie" : {
+        "name" : "Movie",
+        "librairyName" : "Ma Vidéothèque"
+    },
+    "series" : {
+        "name" : "Series",
+        "librairyName" : "Ma Sériethèque"
+    },
+    "video-games" : {
+        "name" : "Video Games",
+        "librairyName" : "Ma Jeux-vidéothèque"
+    }
+};
+export const defaultType    = "book";
 export const readingStates   = ["Want to read","Finished", "Reading"];
 export const defaultReadingState  = "Finished";
 export const anyReadingState = "Any state";

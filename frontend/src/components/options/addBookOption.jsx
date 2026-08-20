@@ -50,9 +50,9 @@ const AddBookOption = ({setBooks}) => {
           value={type}
           onChange={e => setType(e.target.value)}
         >
-          {types.map(t => (
-            <option key={t} value={t}>
-              {t}
+          {Object.keys(types).map(typeKey => (
+            <option key={typeKey} value={types[typeKey].name}>
+              {types[typeKey].name}
             </option>
           ))}
         </select>

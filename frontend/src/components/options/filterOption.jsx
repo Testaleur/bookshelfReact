@@ -19,13 +19,13 @@ const FilterOption = ({setSelectedType, selectedType, selectedReadingState, setS
           value={selectedType}
           onChange={e => setSelectedType(e.target.value)}
           >
-          {types.map(t => (
+          {Object.keys(types).map(t => (
             <option key={t} value={t}>
-              {t}
+              {types[t].name}
             </option>
           ))}
           <option key={defaultType} value={defaultType}>
-            {defaultType}
+            {types[defaultType].name}
           </option>
         </select>
 

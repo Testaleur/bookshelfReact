@@ -1,4 +1,5 @@
 import Card from "./utils/card.jsx";
+import { types } from "../config.jsx";
 
 const BookInfosDisplayer = ({ selectedBook }) => {
   if (!selectedBook) {
@@ -13,7 +14,7 @@ const BookInfosDisplayer = ({ selectedBook }) => {
     <Card id="bookInfosDisplayer">
       <h1 className="font-bold text-lg mb-2">{selectedBook.title}</h1>
       <p><strong>Author:</strong> {selectedBook.author}</p>
-      <p><strong>Type:</strong> {selectedBook.type}</p>
+      <p><strong>Type:</strong> {types[selectedBook.type].name}</p>
       <p><strong>Reading state:</strong> {selectedBook.readingState}</p>
       <p>
         <strong>Completion date:</strong>{" "}

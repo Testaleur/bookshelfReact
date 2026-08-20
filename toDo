@@ -1,3 +1,15 @@
+P0
+- refonte du menu principal
+- séparer en plusieurs onglets
+- states stores : uistore, ...
+- espace tier list
+- traduire en français
+- faire une bdd cf projet bdd centrale
+- ajouter sous genre aux livres, film etc
+- créer des modèles pour chaque type
+- add video games
+
+P1
 - gitignore data (create a file backend/data.example.json with [], and write in README : cp backend/data.example.json backend/data.json)
 - delete book by id
 - stats and achievements
