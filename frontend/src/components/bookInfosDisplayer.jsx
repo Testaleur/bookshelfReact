@@ -1,11 +1,14 @@
 import Card from "./utils/card.jsx";
 import { types } from "../config.jsx";
+import { observer } from "mobx-react-lite";
 
-const BookInfosDisplayer = ({ selectedBook }) => {
+const BookInfosDisplayer = observer(({ uiStore }) => {
+  const selectedBook = uiStore.selectedBook;
+
   if (!selectedBook) {
     return (
       <Card id="bookInfosDisplayer">
-        Select a book to display informations!
+        Sélectionnez {types[uiStore.selectedType]?.gender || 'un'} {(types[uiStore.selectedType]?.name || uiStore.selectedType).toLowerCase()} pour afficher les informations !
       </Card>
     );
   }
@@ -43,6 +46,6 @@ const BookInfosDisplayer = ({ selectedBook }) => {
       <p><strong>Comments:</strong> {selectedBook.comments?selectedBook.comments:"-"}</p>
     </Card>
   );
-};
+});
 
 export default BookInfosDisplayer;

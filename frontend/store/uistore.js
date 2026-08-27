@@ -1,4 +1,4 @@
-import { types, defaultType, defaultReadingState, defaultSort, NB_GENERATED_BOOKS,
+import { types, defaultReadingState, defaultSort, NB_GENERATED_BOOKS,
     API_URL, ENV
  } from "../src/config.jsx";
 import { generateBooks } from "../mock/mockBooks";
@@ -19,7 +19,7 @@ export default class UiStore {
         this.selectedBook = book;
     }
 
-    @observable accessor selectedType = defaultType;
+    @observable accessor selectedType = "book";
     @action setSelectedType(newType) {
         this.selectedType = newType;
     }

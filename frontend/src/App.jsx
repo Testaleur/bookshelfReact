@@ -19,31 +19,15 @@ const App = observer(() => {
 
   return (
     <>
-      <MainBanner 
-        setBooks        = {uiStore.setBooks} 
-        selectedType    = {uiStore.selectedType}
-        setSelectedType = {uiStore.setSelectedType}
-        selectedReadingState    = {uiStore.selectedReadingState}
-        setSelectedReadingState = {uiStore.setSelectedReadingState}
-        selectedSort    = {uiStore.selectedSort}
-        setSelectedSort = {uiStore.setSelectedSort}
-        setDisplayStats = {uiStore.setDisplayStats}
-      />
+      <MainBanner uiStore = {uiStore}/>
 
       {uiStore.displayStats &&
-        <Stats
-          setDisplayStats = {uiStore.setDisplayStats}
-          data = {uiStore.books}
-        />
+        <Stats uistore = {uiStore}/>
       }
 
       <RowContainer>
-        <BookshelvesContainer
-          uiStore = {uiStore}
-        />
-        <BookInfosDisplayer
-          selectedBook = {uiStore.selectedBook}
-        />
+        <BookshelvesContainer uiStore = {uiStore}/>
+        <BookInfosDisplayer uiStore = {uiStore}/>
       </RowContainer>
     </>
   )

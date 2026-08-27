@@ -1,10 +1,8 @@
-import { defaultSort, defaultType, anyReadingState } from './config.jsx';
+import { defaultSort, anyReadingState } from './config.jsx';
 
 export function filterBooks(data, selectedType, selectedReadingState) {
   return data.filter(e => {
-    const typeMatch =
-      selectedType === defaultType || 
-      e.type === selectedType;
+    const typeMatch = e.type === selectedType;
 
     const readMatch =
       selectedReadingState === anyReadingState ||

@@ -1,5 +1,6 @@
 P0
 - refonte du menu principal
+- apiHelper
 - séparer en plusieurs onglets
 - states stores : uistore, ...
 - espace tier list
@@ -10,6 +11,7 @@ P0
 - add video games
 
 P1
+- ajouter des collections (tome 1, 2...) avec des couleurs au choix
 - gitignore data (create a file backend/data.example.json with [], and write in README : cp backend/data.example.json backend/data.json)
 - delete book by id
 - stats and achievements

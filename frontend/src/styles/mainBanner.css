@@ -6,9 +6,10 @@
 }
 
 #mainTitle{
-  font-size: 40px;
-  width: 20%;
-  height: 60px;
+  font-size: 2.5em;
+  height: 2em;
+  width: 60%;
+  gap: 10px;
 }
 
 #optionRowContainer{
@@ -26,4 +27,50 @@
 #selectFilteringType,
 #selectFilteringReadingState{
   width: 110px;
+}
+
+.typeSelector {
+  position: relative;
+}
+
+.typeSelectorButton,
+.typeSelectorOption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 8px;
+}
+
+.typeSelectorButton {
+  gap: 4px;
+  cursor: pointer;
+}
+
+.typeSelectorOption {
+  cursor: pointer;
+}
+
+.typeSelectorButton:hover,
+.typeSelectorOption:hover {
+  background: #3c3d36;
+}
+
+.typeSelectorMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  padding-top: 4px;
+}
+
+.typeSelectorOption {
+  flex-shrink: 0;
 }

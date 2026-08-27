@@ -2,8 +2,9 @@
 import { types, API_URL, readingStates } from "../../config.jsx";
 import { useState } from "react";
 import Card from '../utils/card.jsx'
+import { observer } from "mobx-react-lite";
 
-const AddBookOption = ({setBooks}) => {
+const AddBookOption = observer(({uiStore}) => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [type, setType] = useState('Book');
@@ -19,7 +20,7 @@ const AddBookOption = ({setBooks}) => {
     })
       .then(res => res.json())
       .then(data => {
-        setBooks(data.books);
+        uiStore.setBooks(data.books);
         setTitle('');
         setAuthor('');
         setType('Book');
@@ -30,7 +31,7 @@ const AddBookOption = ({setBooks}) => {
 
   return (
     <Card id = "addBookOption">
-        Add a book
+        Ajouter {types[uiStore.selectedType]?.gender || 'un'} {(types[uiStore.selectedType]?.name || uiStore.selectedType).toLowerCase()}:
       <div className="mb-4">
         <input
           className="border p-1 mr-2"
@@ -77,6 +78,6 @@ const AddBookOption = ({setBooks}) => {
       </div>
     </Card>
   );
-};
+});
 export default AddBookOption
 

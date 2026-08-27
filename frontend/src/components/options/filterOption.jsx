@@ -1,39 +1,22 @@
-import { types, defaultType, readingStates, anyReadingState, defaultReadingState } from '../../config.jsx';
+import { types, readingStates, anyReadingState, defaultReadingState } from '../../config.jsx';
 import { Filter } from "lucide-react";
 import ColumnContainer from '../utils/columnContainer.jsx';
+import { observer } from "mobx-react-lite";
 
-const FilterOption = ({setSelectedType, selectedType, selectedReadingState, setSelectedReadingState}) => {
+const FilterOption = observer(({uiStore}) => {
   const resetFilterValues = () => {
-    setSelectedType(defaultType);
-    setSelectedReadingState(defaultReadingState);
+    uiStore.setSelectedReadingState(defaultReadingState);
   }
 
   return (
     <div id = "filterOption">
       <Filter size={18} />
       <ColumnContainer>
-
-        <select
-          id = "selectFilteringType"
-          className="border p-1 mr-2"
-          value={selectedType}
-          onChange={e => setSelectedType(e.target.value)}
-          >
-          {Object.keys(types).map(t => (
-            <option key={t} value={t}>
-              {types[t].name}
-            </option>
-          ))}
-          <option key={defaultType} value={defaultType}>
-            {types[defaultType].name}
-          </option>
-        </select>
-
         <select
           id = "selectFilteringReadingState"
           className="border p-1 mr-2"
-          value={selectedReadingState}
-          onChange={e => setSelectedReadingState(e.target.value)}
+          value={uiStore.selectedReadingState}
+          onChange={e => uiStore.setSelectedReadingState(e.target.value)}
           >
           {readingStates.map(t => (
             <option key={t} value={t}>
@@ -49,5 +32,5 @@ const FilterOption = ({setSelectedType, selectedType, selectedReadingState, setS
       </ColumnContainer>
     </div>
   );
-};
+});
 export default FilterOption

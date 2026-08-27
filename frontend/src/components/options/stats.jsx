@@ -6,11 +6,12 @@ import { types, defaultReadingState } from '../../config.jsx';
 import { X } from "lucide-react";
 import { useState, useEffect } from 'react';
 
-const Stats = ({ setDisplayStats, data }) => {
+const Stats = ({ uistore }) => {
   const [numberOfItems, setNumberOfItems] = useState({});
   const [numberOfFinishedItems, setNumberOfFinishedItems] = useState({});
   const [numberOfWantToReadItems, setNumberOfWantToReadItems] = useState({});
   const typesKeys = Object.keys(types);
+  const data = uistore.books;
   useEffect(() => {
     const counts = {};
     const countsFinished = {};
@@ -22,7 +23,7 @@ const Stats = ({ setDisplayStats, data }) => {
       countsWantToRead[type] = 0;
     });
 
-    data.forEach((item) => {
+    uistore.books.forEach((item) => {
       const itemType = item.type;
       const itemState = item.readingState;
       if (typesKeys.includes(itemType)) {
@@ -39,13 +40,13 @@ const Stats = ({ setDisplayStats, data }) => {
     setNumberOfItems(counts);
     setNumberOfFinishedItems(countsFinished);
     setNumberOfWantToReadItems(countsWantToRead);
-  }, [data]);
+  }, [uistore.books]);
 
   return (
     <Card id = "statsDisplayer">
       <div id = "topStatBar">
         <button id = "exitStatsButton"
-          onClick={()=>setDisplayStats(false)}
+          onClick={()=>uistore.setDisplayStats(false)}
         >
           <X size={20} />
         </button>
