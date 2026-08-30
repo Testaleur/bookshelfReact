@@ -5,7 +5,8 @@ import { MAX_BOOKS_PER_SHELF, MIN_NUMBER_OF_SHELVES } from '../config.jsx'
 import { prepareData } from '../utils.js';
 import { observer } from "mobx-react-lite";
 
-const BookshelvesContainer = observer(({ uiStore }) => {
+const BookshelvesContainer = observer(({ rootStore }) => {
+  const uiStore = rootStore.uiStore;
 
   const books = prepareData(uiStore.books, uiStore.selectedSort, uiStore.selectedType, uiStore.selectedReadingState);
 

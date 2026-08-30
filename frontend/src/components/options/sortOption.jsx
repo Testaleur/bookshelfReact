@@ -1,7 +1,9 @@
 import { sortsOptions, defaultSort } from '../../config.jsx';
 import { SortAsc } from "lucide-react";
 
-const SortOption = ({uiStore}) => {
+const SortOption = ({rootStore}) => {
+  const uiStore = rootStore.uiStore;
+
   return (
     <div id = "sortOption">
       <SortAsc size={18} />

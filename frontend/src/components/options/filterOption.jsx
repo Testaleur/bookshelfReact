@@ -3,7 +3,8 @@ import { Filter } from "lucide-react";
 import ColumnContainer from '../utils/columnContainer.jsx';
 import { observer } from "mobx-react-lite";
 
-const FilterOption = observer(({uiStore}) => {
+const FilterOption = observer(({rootStore}) => {
+  const uiStore = rootStore.uiStore;
   const resetFilterValues = () => {
     uiStore.setSelectedReadingState(defaultReadingState);
   }

@@ -7,21 +7,22 @@ import TypeSelector from './typeSelector.jsx';
 import { types } from '../config.jsx';
 import { observer } from "mobx-react-lite";
 
-const MainBanner = observer(({uiStore}) => {
+const MainBanner = observer(({rootStore}) => {
+  const uiStore = rootStore.uiStore;
   return (
     < ColumnContainer id = "mainBanner">
       <RowContainer id = "mainBannerFirstRow">      
         <Card id = "mainTitle">
           {uiStore.selectedType ? types[uiStore.selectedType].librairyName : types["book"].librairyName}
         </Card>
-        <TypeSelector uiStore = {uiStore}/>
+        <TypeSelector rootStore = {rootStore}/>
       </RowContainer>
 
       <RowContainer id = "mainBannerSecondRow">
 
-        <AddBookOption uiStore = {uiStore}/>
+        <AddBookOption rootStore = {rootStore}/>
 
-        <OptionPanel uiStore = {uiStore}/>
+        <OptionPanel rootStore = {rootStore}/>
 
       </RowContainer>
     </ColumnContainer>

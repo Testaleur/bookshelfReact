@@ -1,27 +1,43 @@
-import { useState } from "react";
-import { ChevronDown } from "lucide-react";
-import { types } from '../config.jsx';
+import { useRef, useEffect } from "react";
+import { observer } from "mobx-react-lite";
+import { types } from "../config.jsx";
 
-const TypeSelector = ({ uiStore }) => {
-  const [open, setOpen] = useState(false);
-
+const TypeSelector = observer(({ rootStore }) => {
+  const selectorRef = useRef(null);
+  
+  const uiStore = rootStore.uiStore;
   const selectedType = types[uiStore.selectedType];
   const SelectedIcon = selectedType.icon;
 
-  return (
-    <div className="typeSelector">
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        selectorRef.current &&
+        !selectorRef.current.contains(event.target)
+      ) {
+        uiStore.setTypeSelectorOpen(false);
+      }
+    };
 
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [uiStore]);
+
+  return (
+    <div ref={selectorRef} className="typeSelector">
       <button
-        onClick={() => setOpen(!open)}
+        onClick={() => uiStore.toggleTypeSelector()}
         className="typeSelectorButton"
       >
         <SelectedIcon size={18} />
-        {/* <ChevronDown size={16} /> */}
       </button>
 
-      {open && (
+      {uiStore.typeSelectorOpen && (
         <div className="typeSelectorMenu">
-          {Object.entries(types).map(([key, type]) => {
+          {Object.entries(types).filter(([key, type]) => key !== uiStore.selectedType).map(([key, type]) => {
             const Icon = type.icon;
 
             return (
@@ -29,7 +45,7 @@ const TypeSelector = ({ uiStore }) => {
                 key={key}
                 onClick={() => {
                   uiStore.setSelectedType(key);
-                  setOpen(false);
+                  uiStore.setTypeSelectorOpen(false);
                 }}
                 className="typeSelectorOption"
               >
@@ -39,9 +55,8 @@ const TypeSelector = ({ uiStore }) => {
           })}
         </div>
       )}
-
     </div>
   );
-};
+});
 
 export default TypeSelector;

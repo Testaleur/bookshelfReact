@@ -1,6 +1,8 @@
 import { ChartColumn } from "lucide-react";
 
-const StatOption = ({uiStore}) => {
+const StatOption = ({rootStore}) => {
+  const uiStore = rootStore.uiStore;
+
   return (
     <div id = "statOption">
       <button onClick={()=>uiStore.setDisplayStats(prev => !prev)}>

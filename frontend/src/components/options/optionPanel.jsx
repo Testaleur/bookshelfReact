@@ -4,16 +4,16 @@ import FilterOption from "./filterOption.jsx";
 import SortOption from "./sortOption.jsx";
 import StatOption from "./statOption.jsx";
 
-const OptionPanel = ({uiStore}) => {
+const OptionPanel = ({rootStore}) => {
   return (
     <Card id="optionPanel">
       <RowContainer id = "optionRowContainer">
 
-        <FilterOption uiStore = {uiStore}/>
+        <FilterOption rootStore = {rootStore}/>
 
-        <SortOption uiStore = {uiStore}/>
+        <SortOption rootStore = {rootStore}/>
 
-        <StatOption uiStore = {uiStore}/>
+        <StatOption rootStore = {rootStore}/>
 
       </RowContainer>
     </Card>

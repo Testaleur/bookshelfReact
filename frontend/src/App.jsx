@@ -19,15 +19,15 @@ const App = observer(() => {
 
   return (
     <>
-      <MainBanner uiStore = {uiStore}/>
+      <MainBanner rootStore = {rootStore}/>
 
       {uiStore.displayStats &&
-        <Stats uistore = {uiStore}/>
+        <Stats rootStore = {rootStore}/>
       }
 
       <RowContainer>
-        <BookshelvesContainer uiStore = {uiStore}/>
-        <BookInfosDisplayer uiStore = {uiStore}/>
+        <BookshelvesContainer rootStore = {rootStore}/>
+        <BookInfosDisplayer rootStore = {rootStore}/>
       </RowContainer>
     </>
   )

@@ -2,7 +2,8 @@ import Card from "./utils/card.jsx";
 import { types } from "../config.jsx";
 import { observer } from "mobx-react-lite";
 
-const BookInfosDisplayer = observer(({ uiStore }) => {
+const BookInfosDisplayer = observer(({ rootStore }) => {
+  const uiStore = rootStore.uiStore;
   const selectedBook = uiStore.selectedBook;
 
   if (!selectedBook) {

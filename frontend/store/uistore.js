@@ -1,6 +1,4 @@
-import { types, defaultReadingState, defaultSort, NB_GENERATED_BOOKS,
-    API_URL, ENV
- } from "../src/config.jsx";
+import { types, defaultReadingState, defaultSort, NB_GENERATED_BOOKS, ENV } from "../src/config.jsx";
 import { generateBooks } from "../mock/mockBooks";
 import { observable, action } from "mobx";
 
@@ -39,24 +37,28 @@ export default class UiStore {
         this.displayStats = newDisplayStats;
     }
 
+    @observable accessor typeSelectorOpen = false;
+
+    @action setTypeSelectorOpen = (open) => {
+        this.typeSelectorOpen = open;
+    };
+
+    @action toggleTypeSelector = () => {
+        this.typeSelectorOpen = !this.typeSelectorOpen;
+    };
+
     @observable accessor mockBooks = generateBooks(NB_GENERATED_BOOKS);
 
     @action
     async loadBooks() {
+        const apiHelper = this.rootStore.utilStore.apiHelper;
         try {
-            const response = await fetch(API_URL);
-
-            if (!response.ok) {
-                throw new Error(`HTTP error: ${response.status}`);
-            }
-
-            const data = await response.json();
-
             if (ENV === "mockTest") {
-                this.setBooks(this.mockBooks);
-            } else {
-                this.setBooks(data);
-            }
+            this.setBooks(this.mockBooks);
+            return;
+        }
+        const data = await apiHelper.getBooks();
+        this.setBooks(data);
         } catch (error) {
             console.error("Error fetching books:", error);
         }

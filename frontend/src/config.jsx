@@ -36,7 +36,7 @@ export const types = {
         "name" : "Jeu-vidéo",
         "pluralName" : "Jeux-vidéo",
         "gender" : "un",
-        "librairyName" : "Ma Jeux-vidéothèque",
+        "librairyName" : "Ma Jeux-Vidéothèque",
         "icon" : Gamepad2
     },
 };
@@ -53,4 +53,4 @@ export const defaultSort = "Any";
 // shelves parameters
 export const MAX_BOOKS_PER_SHELF = 32;
 export const NB_GENERATED_BOOKS = 100;
-export const MIN_NUMBER_OF_SHELVES = 2;
+export const MIN_NUMBER_OF_SHELVES = 5;

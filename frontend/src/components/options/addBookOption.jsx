@@ -1,33 +1,20 @@
 
-import { types, API_URL, readingStates } from "../../config.jsx";
+import { types, readingStates } from "../../config.jsx";
 import { useState } from "react";
 import Card from '../utils/card.jsx'
 import { observer } from "mobx-react-lite";
 
-const AddBookOption = observer(({uiStore}) => {
+const AddBookOption = observer(({rootStore}) => {
+  const uiStore = rootStore.uiStore;
+  const utilStore = rootStore.utilStore;
+  const addBook = () => {
+    utilStore.apiHelper.addBook(title, author, type, readingState);
+  }
+  
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [type, setType] = useState('Book');
   const [readingState, setReadingState] = useState('Finished');
-
-  const addBook = () => {
-    if (!title.trim() || !author.trim() || !readingState.trim()) return;
-    const newBook = { title, author, type, readingState };
-    fetch(API_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(newBook),
-    })
-      .then(res => res.json())
-      .then(data => {
-        uiStore.setBooks(data.books);
-        setTitle('');
-        setAuthor('');
-        setType('Book');
-        setReadingState('Finished');
-      })
-      .catch(err => console.error('Error adding book:', err));
-  };
 
   return (
     <Card id = "addBookOption">

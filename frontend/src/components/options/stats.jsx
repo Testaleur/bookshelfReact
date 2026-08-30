@@ -6,7 +6,8 @@ import { types, defaultReadingState } from '../../config.jsx';
 import { X } from "lucide-react";
 import { useState, useEffect } from 'react';
 
-const Stats = ({ uistore }) => {
+const Stats = ({ rootStore }) => {
+  const uistore = rootStore.uiStore;
   const [numberOfItems, setNumberOfItems] = useState({});
   const [numberOfFinishedItems, setNumberOfFinishedItems] = useState({});
   const [numberOfWantToReadItems, setNumberOfWantToReadItems] = useState({});
